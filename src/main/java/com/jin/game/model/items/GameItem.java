@@ -9,7 +9,7 @@ import java.math.BigInteger;
 public abstract class GameItem {
    @Id
    private BigInteger itemId;
-   @Column
+   @Column(name = "item_name")
    String itemName;
 
    @Column(name = "item_type", updatable = false)

@@ -1,4 +1,7 @@
 package com.jin.game.model.items;
 
-public class Helmet {
+import javax.persistence.Entity;
+
+@Entity
+public class Helmet extends EquipItem {
 }

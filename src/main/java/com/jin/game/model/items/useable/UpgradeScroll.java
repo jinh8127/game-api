@@ -1,6 +1,7 @@
 package com.jin.game.model.items.useable;
 
 import com.jin.game.model.items.EquipItem;
+import com.jin.game.model.items.GameItem;
 import com.jin.game.model.player.Player;
 
 import javax.persistence.DiscriminatorValue;
@@ -8,7 +9,7 @@ import javax.persistence.Entity;
 
 @Entity
 @DiscriminatorValue("UpgradeScroll")
-public class UpgradeScroll extends UsableItem{
+public class UpgradeScroll extends GameItem implements Usable<EquipItem> {
 
     private Double successRate;
 
@@ -101,10 +102,6 @@ public class UpgradeScroll extends UsableItem{
         this.scrollEffectMagicArmour = scrollEffectMagicArmour;
     }
 
-    @Override
-    public void use(Player p) {
-        // not applicable
-    }
 
     public void use(EquipItem equipItem){
         equipItem.upgrade(this);

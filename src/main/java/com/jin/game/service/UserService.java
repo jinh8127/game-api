@@ -17,5 +17,36 @@ public class UserService {
     public UserService(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
+    public List<User> retrieveALlUsers() {
+        return userRepository.findAll();
+    }
 
+    public User retrieveUser(BigInteger id) {
+        Optional<User> userOptional = userRepository.findById(id);
+        return userOptional.orElseThrow(
+                ()->new UserNotFoundException("User with id "+ id + "is not found"));
+    }
+
+    public User retrieveUserByUsername(String username) {
+        return userRepository.findByUserName(username).get(0);
+    }
+
+    public User createUser(User user) {
+        return userRepository.save(user);
+    }
+
+    public User updateUser(BigInteger id, User user) {
+        Optional<User> userOpt = userRepository.findById(id);
+
+        if (!userOpt.isPresent()) {
+            throw new UserNotFoundException("User with id " + id + " is not found");
+        }
+
+        user.setId(id);
+        return userRepository.save(user);
+    }
+
+    public void deleteUser(BigInteger id) {
+        userRepository.deleteById(id);
+    }
 }

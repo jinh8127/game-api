@@ -4,22 +4,23 @@ import javax.persistence.*;
 import java.math.BigInteger;
 
 @Entity
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name="item_type", discriminatorType = DiscriminatorType.STRING)
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+@MappedSuperclass
 public abstract class GameItem {
+
    @Id
-   private BigInteger itemId;
+   @SequenceGenerator(name = "item_generator", sequenceName = "item_seq", allocationSize= 1)
+   @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="item_generator")
+   @Column(name = "item_id", nullable = false)
+   private BigInteger id;
+
+   private static BigInteger ItemId;
+
    @Column(name = "item_name")
    String itemName;
 
    @Column(name = "item_type", updatable = false)
    itemType itemType;
-
-   @Column(name="NPC_Sell_Price")
-   BigInteger npcSellPrice;
-
-   @Column(name="NPC_Buy_Price")
-   BigInteger npcBuyPrice;
 
    @Column(name="Is_Exchangeable")
    Boolean isExchangeable;
@@ -27,20 +28,18 @@ public abstract class GameItem {
    @Column(name="Is_Disposable")
    Boolean isDisposable;
 
-   public itemType getItemType() {
-      return itemType;
-   }
-
    public GameItem() {
    }
 
-
-   public BigInteger getItemId() {
-      return itemId;
+   public GameItem(String itemName, com.jin.game.model.items.itemType itemType, Boolean isExchangeable, Boolean isDisposable) {
+      this.itemName = itemName;
+      this.itemType = itemType;
+      this.isExchangeable = isExchangeable;
+      this.isDisposable = isDisposable;
    }
 
-   public void setItemId(BigInteger itemId) {
-      this.itemId = itemId;
+   public BigInteger getId() {
+      return id;
    }
 
    public String getItemName() {
@@ -49,5 +48,29 @@ public abstract class GameItem {
 
    public void setItemName(String itemName) {
       this.itemName = itemName;
+   }
+
+   public com.jin.game.model.items.itemType getItemType() {
+      return itemType;
+   }
+
+   public void setItemType(com.jin.game.model.items.itemType itemType) {
+      this.itemType = itemType;
+   }
+
+   public Boolean getExchangeable() {
+      return isExchangeable;
+   }
+
+   public void setExchangeable(Boolean exchangeable) {
+      isExchangeable = exchangeable;
+   }
+
+   public Boolean getDisposable() {
+      return isDisposable;
+   }
+
+   public void setDisposable(Boolean disposable) {
+      isDisposable = disposable;
    }
 }

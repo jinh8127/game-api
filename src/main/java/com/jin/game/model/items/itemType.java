@@ -1,8 +1,13 @@
 package com.jin.game.model.items;
 
 public enum itemType {
-    Equip,
-    Use,
-    etc,
-    QuestItem
+    HELMET,
+    TOPWEAR,
+    BOTTOMWEAR,
+    SHOES,
+    WEAPON,
+
+    POTION,
+    SCROLL,
+    ETC
 }

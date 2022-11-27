@@ -50,11 +50,11 @@ public abstract class GameItem {
       this.itemName = itemName;
    }
 
-   public com.jin.game.model.items.itemType getItemType() {
+   public itemType getItemType() {
       return itemType;
    }
 
-   public void setItemType(com.jin.game.model.items.itemType itemType) {
+   public void setItemType(itemType itemType) {
       this.itemType = itemType;
    }
 
@@ -73,4 +73,6 @@ public abstract class GameItem {
    public void setDisposable(Boolean disposable) {
       isDisposable = disposable;
    }
+
+   public void setId(BigInteger id) { this.id = id;}
 }

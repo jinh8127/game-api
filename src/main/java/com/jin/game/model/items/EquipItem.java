@@ -1,7 +1,6 @@
 package com.jin.game.model.items;
 
-import com.jin.game.model.inventory.UserInventory;
-import com.jin.game.model.user.User;
+import com.jin.game.model.inventory.CharacterInventory;
 
 import javax.persistence.*;
 
@@ -12,7 +11,7 @@ public abstract class EquipItem extends GameItem implements Wearable {
 
     @ManyToOne
     @JoinColumn(name = "owner_inventory_id")
-    UserInventory ownerInventory;
+    CharacterInventory ownerInventory;
     Integer levelReq;
 
     Integer strReq;
@@ -28,11 +27,11 @@ public abstract class EquipItem extends GameItem implements Wearable {
     Integer physicalArmor;
     Integer magicArmor;
 
-    public UserInventory getOwnerInventory() {
+    public CharacterInventory getOwnerInventory() {
         return ownerInventory;
     }
 
-    public void setOwnerInventory(UserInventory ownerInventory) {
+    public void setOwnerInventory(CharacterInventory ownerInventory) {
         this.ownerInventory = ownerInventory;
     }
 

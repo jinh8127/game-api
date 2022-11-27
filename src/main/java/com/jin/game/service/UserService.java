@@ -17,14 +17,15 @@ public class UserService {
     public UserService(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
+
     public List<User> retrieveALlUsers() {
         return userRepository.findAll();
     }
 
-    public User retrieveUser(BigInteger id) {
+    public User retrieveUser(Long id) {
         Optional<User> userOptional = userRepository.findById(id);
         return userOptional.orElseThrow(
-                ()->new UserNotFoundException("User with id "+ id + "is not found"));
+                ()->new NotFoundException("User with id "+ id + " is not found"));
     }
 
     public User retrieveUserByUsername(String username) {
@@ -35,18 +36,18 @@ public class UserService {
         return userRepository.save(user);
     }
 
-    public User updateUser(BigInteger id, User user) {
+    public User updateUser(Long id, User user) {
         Optional<User> userOpt = userRepository.findById(id);
 
         if (!userOpt.isPresent()) {
-            throw new UserNotFoundException("User with id " + id + " is not found");
+            throw new NotFoundException("User with id " + id + " is not found");
         }
 
         user.setId(id);
         return userRepository.save(user);
     }
 
-    public void deleteUser(BigInteger id) {
+    public void deleteUser(Long id) {
         userRepository.deleteById(id);
     }
 }

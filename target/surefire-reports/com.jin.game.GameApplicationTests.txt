@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.jin.game.GameApplicationTests
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 7.951 s - in com.jin.game.GameApplicationTests
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 11.669 s - in com.jin.game.GameApplicationTests

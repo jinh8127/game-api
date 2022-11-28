@@ -8,11 +8,10 @@ import java.sql.Date;
 import java.util.List;
 
 @Entity
-@Table(name = "user")
+@Table(name = "user_table")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id", nullable = false)
     private Long id;
 
     @OneToOne(cascade = CascadeType.ALL)

@@ -25,7 +25,7 @@ public class TopWear extends GameItem implements Wearable {
     public TopWear() {
     }
 
-    public TopWear(String itemName, com.jin.game.model.items.itemType itemType, Boolean isExchangeable, Boolean isDisposable,
+    public TopWear(String itemName, ItemType itemType, Boolean isExchangeable, Boolean isDisposable,
                    Integer levelReq, Integer strReq, Integer dexReq, Integer lukReq, Integer intReq, Integer strength,
                    Integer dexterity, Integer luck, Integer intelligence, Integer physicalArmor, Integer magicArmor) {
         super(itemName, itemType, isExchangeable, isDisposable);

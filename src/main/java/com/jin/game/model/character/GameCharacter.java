@@ -63,11 +63,12 @@ public class GameCharacter {
 
     @Override
     public String toString() {
-        return "Character{" +
+        return "GameCharacter{" +
                 "id=" + id +
                 ", characterName='" + characterName + '\'' +
                 ", characterLevel=" + characterLevel +
-                ", inventoryId=" + inventory.getId() +
+                ", user=" + user +
+                ", inventory=" + inventory +
                 '}';
     }
 }

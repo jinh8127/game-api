@@ -5,7 +5,7 @@ import com.jin.game.repository.ItemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.math.BigInteger;
+
 import java.util.Optional;
 
 @Service
@@ -18,7 +18,7 @@ public class GameItemService {
         this.itemRepository = itemRepository;
     }
 
-    public GameItem retrieveGameItem(BigInteger id) {
+    public GameItem retrieveGameItem(Long id) {
         Optional<GameItem> itemOptional = itemRepository.findById(id);
         return itemOptional.orElseThrow(
                 ()->new NotFoundException("Item with id "+ id + " is not found"));
@@ -28,7 +28,7 @@ public class GameItemService {
         return itemRepository.save(gameItem);
     }
 
-    public GameItem updateGameItem(BigInteger id, GameItem gameItem){
+    public GameItem updateGameItem(Long id, GameItem gameItem){
         Optional<GameItem> itemOptional = itemRepository.findById(id);
 
         if (!itemOptional.isPresent()) {
@@ -38,7 +38,7 @@ public class GameItemService {
         return itemRepository.save(gameItem);
     }
 
-    public void deleteGameItem(BigInteger id) {
+    public void deleteGameItem(Long id) {
         itemRepository.deleteById(id);
     }
 

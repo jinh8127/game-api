@@ -5,7 +5,6 @@ import com.jin.game.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.math.BigInteger;
 import java.util.List;
 import java.util.Optional;
 
@@ -28,8 +27,8 @@ public class UserService {
                 ()->new NotFoundException("User with id "+ id + " is not found"));
     }
 
-    public User retrieveUserByUsername(String username) {
-        return userRepository.findByUserName(username).get(0);
+    public User retrieveUserByUserEmail(String username) {
+        return userRepository.findByUserEmail(username).get(0);
     }
 
     public User createUser(User user) {

@@ -1,6 +1,6 @@
 package com.jin.game.model.items;
 
-public enum itemType {
+public enum ItemType {
     HELMET,
     TOPWEAR,
     BOTTOMWEAR,

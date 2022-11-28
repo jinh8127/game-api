@@ -8,7 +8,6 @@ import javax.persistence.*;
 public abstract class Account {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id", nullable = false)
     protected Long id;
 
     protected String loginID;

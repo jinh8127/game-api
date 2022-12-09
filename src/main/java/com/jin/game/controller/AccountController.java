@@ -4,6 +4,7 @@ import com.jin.game.model.account.Account;
 import com.jin.game.model.account.AdminAccount;
 import com.jin.game.model.account.UserAccount;
 import com.jin.game.service.AccountService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -16,6 +17,7 @@ import java.util.List;
 @RequestMapping("api/v1/accounts")
 public class AccountController {
 
+    @Autowired
     private AccountService accountService;
 
 

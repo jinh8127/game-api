@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -18,6 +19,9 @@ public class GameItemService {
         this.itemRepository = itemRepository;
     }
 
+    public List<GameItem> retrieveAllGameItems() {
+        return itemRepository.findAll();
+    }
     public GameItem retrieveGameItem(Long id) {
         Optional<GameItem> itemOptional = itemRepository.findById(id);
         return itemOptional.orElseThrow(
